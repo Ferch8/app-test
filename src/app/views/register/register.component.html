@@ -5,44 +5,48 @@
         <div class="col-md-6 mx-auto">
           <div class="card mx-4">
             <div class="card-body p-4">
-              <form>
+              <form #signupForm=ngForm (ngSubmit)="onSubmit()">
                 <h1>Register</h1>
                 <p class="text-muted">Create your account</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+                  <input type="text" name="name" [(ngModel)]="form.name" class="form-control" placeholder="Username" autocomplete="username" required>
+                  <div class="invalid-feedback" [hidden]="!error.name">{{ error.name }}</div>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Email" autocomplete="email" required>
+                  <input type="text" name="email" [(ngModel)]="form.email" class="form-control" placeholder="Email" autocomplete="email" required>
+                  <div class="invalid-feedback" [hidden]="!error.email">{{ error.email }}</div>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+                  <input type="password" name="password" [(ngModel)]="form.password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+                  <div class="invalid-feedback" [hidden]="!error.password">{{ error.password }}</div>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password" required>
+                  <input type="password" name="password_confirmation" [(ngModel)]="form.password_confirmation" class="form-control" placeholder="Repeat password" autocomplete="new-password" required>
+                  <div class="invalid-feedback" [hidden]="!error.password">{{ error.password }}</div>
                 </div>
-                <button type="button" class="btn btn-block btn-success">Create Account</button>
+                <button type="submit" [disabled]="!signupForm.valid" class="btn btn-block btn-success">Create Account</button>
               </form>
             </div>
             <div class="card-footer p-4">
               <div class="row">
                 <div class="col-6">
-                  <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
+                  <a routerLink="/login" class="btn btn-block " type="button"><span>Sign in</span></a>
                 </div>
-                <div class="col-6">
+                <!--<div class="col-6">
                   <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
-                </div>
+                </div>-->
               </div>
             </div>
           </div>
