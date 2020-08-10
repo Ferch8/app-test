@@ -40,6 +40,13 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'signup',
+    component: SignupComponent,
+    data: {
+      title: 'Register Page'
+    }
+  },
+  {
     path: 'register',
     component: RegisterComponent,
     data: {
