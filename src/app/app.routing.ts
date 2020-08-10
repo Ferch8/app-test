@@ -8,6 +8,9 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 
 export const routes: Routes = [
   {
@@ -37,10 +40,31 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'signup',
+    component: SignupComponent,
+    data: {
+      title: 'Register Page'
+    }
+  },
+  {
     path: 'register',
     component: RegisterComponent,
     data: {
       title: 'Register Page'
+    }
+  },
+  {
+    path: 'request-password-reset',
+    component: RequestResetComponent,
+    data: {
+      title: 'Resetear contraseña'
+    }
+  },
+  {
+    path: 'response-password-reset',
+    component: ResponseResetComponent,
+    data: {
+      title: 'Resetear contraseña'
     }
   },
   {
